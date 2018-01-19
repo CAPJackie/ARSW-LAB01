@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.blacklistvalidator;
 
+import edu.eci.arsw.threads.CountThreadsMain;
 import java.util.List;
 
 /**
@@ -13,9 +14,9 @@ import java.util.List;
  */
 public class Main {
     
-    public static void main(String a[]){
+    public static void main(String a[]) throws InterruptedException{
         HostBlackListsValidator hblv=new HostBlackListsValidator();
-        List<Integer> blackListOcurrences=hblv.checkHost("200.24.34.55");
+        List<Integer> blackListOcurrences=hblv.checkHost("200.24.34.55", 5);
         System.out.println("The host was found in the following blacklists:"+blackListOcurrences);
         
     }
