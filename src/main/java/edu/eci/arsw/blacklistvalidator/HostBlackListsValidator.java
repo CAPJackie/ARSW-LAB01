@@ -54,11 +54,11 @@ public class HostBlackListsValidator {
         int sumatoria = 0;
         
         for(int i=0; i<N; i++){
-            sumatoria += cantidad+residuo;
+            sumatoria += cantidad + residuo;
             hilos.add(new SearchThread(sum,sumatoria,skds,ipaddress));
             hilos.get(i).start();
             residuo=0;
-            sum=sumatoria+1;
+            sum = sumatoria+1;
         }
         
        
@@ -73,7 +73,7 @@ public class HostBlackListsValidator {
             for(int j=0; j<hilos.get(i).getListaEncontradas().size(); j++){
                 blackListOcurrences.add(hilos.get(i).getListaEncontradas().get(j));
             }
-            }
+        }
         
         
         if (ocurrencesCount>=BLACK_LIST_ALARM_COUNT){

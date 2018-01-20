@@ -59,9 +59,7 @@ public class SearchThread extends Thread{
     public void setChequeadas(int chequeadas) {
         this.chequeadas = chequeadas;
     }
-    
-    
-    
+      
     
     public int getOcurrencias(){  
         return ocurrencias;

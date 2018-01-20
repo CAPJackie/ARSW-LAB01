@@ -12,7 +12,10 @@ package edu.eci.arsw.threads;
 public class CountThread extends Thread{
     private int low;
     private int max;
-    public CountThread(){
+    
+    public CountThread(int low, int max){
+        this.low = low;
+        this.max = max;
     }
     public void run(){
         for(int i=low; i<=max; i++){
@@ -36,8 +39,4 @@ public class CountThread extends Thread{
     public void setMax(int max) {
         this.max = max;
     }
-
- 
-    
-    
 }
