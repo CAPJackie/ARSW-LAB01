@@ -21,7 +21,7 @@ public class Main {
         List<Integer> blackListOcurrences=hblv.checkHost("212.24.24.55", 2*Runtime.getRuntime().availableProcessors());
         List<Integer> blackListOcurrences=hblv.checkHost("212.24.24.55", 50);
         List<Integer> blackListOcurrences=hblv.checkHost("212.24.24.55", 100);*/
-        List<Integer> blackListOcurrences=hblv.checkHost("212.24.24.55", 200);
+        List<Integer> blackListOcurrences=hblv.checkHost("200.24.34.55", 70);
         System.out.println("The host was found in the following blacklists:"+blackListOcurrences);
         
     }

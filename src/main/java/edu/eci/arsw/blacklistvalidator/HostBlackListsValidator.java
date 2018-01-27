@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -55,7 +56,7 @@ public class HostBlackListsValidator {
         
         for(int i=0; i<N; i++){
             sumatoria += cantidad + residuo;
-            hilos.add(new SearchThread(sum,sumatoria,skds,ipaddress));
+            hilos.add(new SearchThread(sum,sumatoria,skds,ipaddress, blackListOcurrences));
             hilos.get(i).start();
             residuo=0;
             sum = sumatoria+1;
@@ -65,14 +66,12 @@ public class HostBlackListsValidator {
         
         int checkedListsCount=0;
         
-        for (int i=0;i<hilos.size() && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
+        for (int i=0;i<hilos.size();i++){
             
             hilos.get(i).join();
             checkedListsCount += hilos.get(i).getChequeadas();
             ocurrencesCount += hilos.get(i).getOcurrencias();
-            for(int j=0; j<hilos.get(i).getListaEncontradas().size(); j++){
-                blackListOcurrences.add(hilos.get(i).getListaEncontradas().get(j));
-            }
+            //blackListOcurrences.addAll(hilos.get(i).getListaEncontradas());
         }
         
         
@@ -90,6 +89,11 @@ public class HostBlackListsValidator {
     
     
     private static final Logger LOG = Logger.getLogger(HostBlackListsValidator.class.getName());
+
+    public static int getBLACK_LIST_ALARM_COUNT() {
+        return BLACK_LIST_ALARM_COUNT;
+    }
+    
     
     
     
